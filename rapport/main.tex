@@ -21,6 +21,37 @@
 \definecolor{dkred}{rgb}{0.7,0,0} 
 \lstset{language=matlab,numbers=left,numberstyle=\tiny\color{gray},basicstyle=\rm\footnotesize,keywordstyle=\bfseries\color{dkred},frame=single,commentstyle=\color{gray}=small, stringstyle=\color{dkgreen}}
 
+% Numbers and units
+\usepackage[squaren, Gray]{SIunits}
+\usepackage{sistyle}
+\usepackage[autolanguage]{numprint}
+%\usepackage{numprint}
+\newcommand\si[2]{\numprint[#2]{#1}}
+\newcommand\np[1]{\numprint{#1}}
+
+% Matlab import
+\usepackage{xparse}% for using parameters at the end block
+\NewDocumentEnvironment{mylist}{m}{%
+  \begin{#1}%
+  % other code
+}{%
+  \end{#1}%
+}
+
+\NewDocumentEnvironment{mytable}{mm}
+{\begin{table}[!ht]\centering}
+{\caption{#2 Valeurs obtenues par le code du listing~\ref{lst:#1}}\label{tab:#1}\end{table}}
+
+\newcommand{\matlabcode}[2]
+{\lstinputlisting[caption={Contenu du fichier \lstinline{#1.m}
+  contenant l'implémentation de la fonction \lstinline{#1}.
+#2},label={lst:#1}]
+{matlab/#1.m}
+}
+
+
+
+
 \title{LFSAB1105 : APP}
 \author{\begin{tabular}{llll}
 \textsc{Legat} & Benoît & 4896-11-00\\
@@ -35,6 +66,7 @@
 
 \input{quest1/quest1.tex}
 \input{quest2/quest2.tex}
+\input{appendix.tex}
 
 \end{document}
 
