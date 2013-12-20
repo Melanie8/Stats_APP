@@ -1,1 +1,9 @@
 \subsection{Méthode graphique}
+Soit l'échantillon aléatoire $X_1$,...,$X_n$ obtenu avec la loi de densité suivante (définie pour $x \geq 0$, avec $k$ et $c > 0$) :
+$$ f(x) = \frac{k}{c}\left(\frac{x}{c}\right)^{k-1}\exp\left[-\left(\frac{x}{c}\right)^{k}\right] $$ 
+On aimerait trouver un estimateur $\hat{\theta} = (\hat{k},\hat{c})$ pour $\theta = (k,c)$ en utilisant la régression linéaire.
+Pour cela, notons que
+$$ \ln(-\ln(1-F(x))) = k\ln(x)-k\ln(c) $$
+Il suffit alors de choisir des points $x$ et d'estimer $F(x)$ grâce aux données empiriques $X_1$,...,$X_n$. La régression linéaire nous donnera des estimateurs $\hat{k}$ et $-\hat{k}\ln(\hat{c})$ dont nous pouvons facilement extraire $\hat{\theta}$. Pour simplifier les choses, on peut réindicer $X_1$,...,$X_n$ en $X_1'$,...,$X_n'$, de telle sorte que $X_1'<X_2'<$...$<X_n'$ (on suppose les $X_i$ obtenus différents). On évalue alors très simplement $F$ en chaque $X_i'$ : 
+$$ \hat{F}(X_i') = i/n $$
+On peut alors utiliser les $n-1$ premières valeurs de $X'$ pour effectuer la régression linéaire (le soucis avec la dernière c'est que $\hat{F}(X_n') = 1$ et donc $\ln(1-F)$ n'est pas défini).
