@@ -1,7 +1,49 @@
 \subsection{Méthode du maximum de vraisemblance}
 \paragraph{Démonstration}
-SAM
-
+\noindent On a l'équation de maximum de vraisemblance : \\
+\begin{equation}
+\mbox{L}\left(\mbox{k },\alpha \right) = \left( \mbox{k} \alpha^{k} \right)^{n} \left( \prod\limits_{i=1}^{n} \mbox{x}^{\mbox{k}-1}_{i} \right) \mbox{exp}\left( -\alpha^{k} \sum\limits_{i=1}^n \mbox{x}^{k}_{i}\right)
+\end{equation}
+où $\alpha$ = $\dfrac{1}{c}$ . \\
+Ensuite, nous travaillerons avec $\hat{\mbox{l}}$ = log$\left( \mbox{L} \right)$ tel que : 
+\begin{equation}
+\hat{\mbox{l}}(\mbox{k},\alpha) = \mbox{nlog}(\mbox{k}) + \mbox{nk log}(\alpha) + (\mbox{k}+1) \sum\limits_{i=1}^{n}\mbox{log}(\mbox{x}_{i}) - \alpha^{k} \sum\limits_{i=1}^{n} \mbox{x}^{k}_{i}
+\end{equation}
+avec $\hat{\mbox{l}}$ décomposer au maximum sous la forme d'une somme. Ainsi, nous pourrons obtenir aisément les dérivées de $\hat{\mbox{l}}$. \\
+Calculons donc :
+\begin{align}
+\dfrac{\partial\hat{\mbox{l}}(\mbox{k},\alpha)}{\partial \alpha} &= \mbox{nk} \dfrac{1}{\alpha} - \sum\limits_{i=1}^{n} \mbox{x}^{k}_{i} \left( \mbox{k} \alpha^{\mbox{k}-1} \right) = 0 \label{eq:la} \\ \label{eq:lk}
+\dfrac{\partial\hat{\mbox{l}}(\mbox{k},\alpha)}{\partial \mbox{k}} &= \dfrac{\mbox{n}}{\mbox{k}} + \mbox{n}\mbox{log}(\alpha) + \sum\limits_{i=1}^{n} \mbox{log}(\mbox{x}^{k}_{i}) - \sum\limits_{i=1}^{n} \dfrac{(\partial \alpha \mbox{x}_{i})^{\mbox{k}}}{\partial \mbox{k}} = 0
+\end{align}
+Développons l'équation \ref{eq:la} en multipliant l'équation par $\alpha$ :
+\begin{equation}
+\mbox{n} = \sum\limits_{i=1}^{n} \mbox{x }^{k}_{i} \alpha^{\mbox{k}} 
+\end{equation}
+Il vient donc directement par la définition de $\alpha$ que :
+\begin{equation}
+\mbox{c} = \left(\sum\limits_{i=1}^{n} \mbox{x }^{k}_{i}\dfrac{1}{\mbox{n}}\right)^{\dfrac{1}{\mbox{k}}} \label{c}
+\end{equation}
+Développons à présent l'équation \ref{eq:lk}. \\ 
+Nous utiliserons par ailleurs la propriété de dérivation suivante :
+\begin{equation}
+\dfrac{\partial \mbox{a}^{\mbox{x}}}{\partial \mbox{x}} = \mbox{log}(\mbox{a})~\mbox{a}^{\mbox{x}}
+\end{equation}
+Ainsi, nous avons après avoir développé la dernière dérivée partielle de l'équation \ref{eq:lk} :
+\begin{equation}
+ \dfrac{\mbox{n}}{\mbox{k}} + \mbox{n}\mbox{log}(\alpha) + \sum\limits_{i=1}^{n} \mbox{log}(\mbox{x}^{k}_{i}) -  \sum\limits_{i=1}^{n}  \left[ \left[ \mbox{log}(\mbox{x}_{i}) + \mbox{log}(\alpha) \right] \alpha^{\mbox{k}} \mbox{x}^{k}_{i} \right] = 0
+\end{equation}
+Nous pouvons encore simplifier l'expression ci-dessus en utilisant l'équation \ref{c} :
+\begin{equation}
+\sum\limits_{i=1}^{n}  \left[ \left[ \mbox{log}(\mbox{x}_{i}) + \mbox{log}(\alpha) \right] \alpha^{\mbox{k}} \mbox{x}^{k}_{i} \right] = \mbox{n} \dfrac{\sum\limits_{i=1}^{n} \mbox{x}^{k}_{i} \mbox{~log}(\mbox{x}_{i})}{\sum\limits_{i=1}^{n} \mbox{x}^{k}_{i}} + \mbox{n}\mbox{log}(\alpha)
+\end{equation}
+Nous arrivons donc à l'équation suivante en annulant les termes en log($\alpha$):
+\begin{equation}
+\dfrac{\mbox{n}}{\mbox{k}} = \mbox{n} \dfrac{\sum\limits_{i=1}^{n} \mbox{x}^{k}_{i} \mbox{~log}(\mbox{x}_{i})}{\sum\limits_{i=1}^{n} \mbox{x}^{k}_{i}} - \sum\limits_{i=1}^{n} \mbox{~log}(\mbox{x}_{i})
+\end{equation}
+et nous obtenons le résultat souhaité :
+\begin{equation}
+\dfrac{1}{\mbox{k}} = \dfrac{\sum\limits_{i=1}^{n} \mbox{x}^{k}_{i} \mbox{~log}(\mbox{x}_{i})}{\sum\limits_{i=1}^{n} \mbox{x}^{k}_{i}} - \dfrac{\sum\limits_{i=1}^{n} \mbox{~log}(\mbox{x}_{i})}{\mbox{n}}
+\end{equation}
 
 %b)
 \paragraph{Echantillon, points candidats et fonction de vraisemblance}
