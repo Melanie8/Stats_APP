@@ -7,7 +7,7 @@
 où $\alpha$ = $\dfrac{1}{c}$ . \\
 Ensuite, nous travaillerons avec $\hat{\mbox{l}}$ = log$\left( \mbox{L} \right)$ tel que : 
 \begin{equation}
-\hat{\mbox{l}}(\mbox{k},\alpha) = \mbox{nlog}(\mbox{k}) + \mbox{nk log}(\alpha) + (\mbox{k}+1) \sum\limits_{i=1}^{n}\mbox{log}(\mbox{x}_{i}) - \alpha^{k} \sum\limits_{i=1}^{n} \mbox{x}^{k}_{i}
+\hat{\mbox{l}}(\mbox{k},\alpha) = \mbox{nlog}(\mbox{k}) + \mbox{nk log}(\alpha) + (\mbox{k}-1) \sum\limits_{i=1}^{n}\mbox{log}(\mbox{x}_{i}) - \alpha^{k} \sum\limits_{i=1}^{n} \mbox{x}^{k}_{i}
 \end{equation}
 avec $\hat{\mbox{l}}$ décomposer au maximum sous la forme d'une somme. Ainsi, nous pourrons obtenir aisément les dérivées de $\hat{\mbox{l}}$. \\
 Calculons donc :
@@ -47,7 +47,7 @@ et nous obtenons le résultat souhaité :
 
 %b)
 \paragraph{Echantillon, points candidats et fonction de vraisemblance}
-La fonction nouvelle fonction \texttt{wblmle} nous permet de trouver un estimateur par la méthode du maximum de vraisemblance pour un échantillon aléatoire simple qui suit une loi de densité
+La fonction \texttt{wblmle} nous permet de trouver un estimateur par la méthode du maximum de vraisemblance pour un échantillon aléatoire simple qui suit une loi de densité
 $ f(x)= \frac{k}{c} \left(\frac{x}{c}\right)^{k-1} \exp \left[ -\left(\frac{x}{c}\right)^{k}\right] \mathbb{I}\{x \geq 0\}$ avec $k>0$ et $c>0$.
 %b)
 La première étape consiste à générer un échantillon $X_1,...,X_n$. Nous utilisons pour ce faire la fonction \texttt{wblrnd} avec un paramètre  $\theta$ au choix. Pour la suite de l'explication, posons $\theta = (k,c) = (3.7, 4.2)$. Nous construisons ensuite une grille de points candidats autour des valeurs de $k$ et $c$. La grille contient $101$ paires de point variant entre $(k-5, c-5)$ et $(k+5, c+5)$. Comme $k>0, c>0$, la borne inférieure est ramenée à $(0,0)$ pour les cas où $k<5$ ou $c<5$ (comme dans notre exemple). Pour chaque paire de points, nous calculons le logarithme de la fonction de vraisemblance depuis la fonction \texttt{wblloglike}~:
