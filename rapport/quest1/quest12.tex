@@ -75,7 +75,7 @@ Pour chaque série, nous avons produit un box-plot et un histogramme. Les graphe
         \caption{Graphes pour $ERT$}\label{fig:ertmg}
 \end{figure}
 
-On ne peut pas dire avec certitude que notre estimateur est biaisé ou non. Si on devait estimer $\beta_0$ et $\beta_1$ tirés d'un modèle de type $Y = \beta_0 + \beta_1x + \epsilon$ avec $\epsilon$ venant d'une certaine distribution de moyenne nulle, alors la théorie prédit que les estimateurs fournit par la régression linéaire pour $\beta_0$ et $\beta_1$ sont non biaisés. Cependant, ici rien ne garantit la condition sur $\epsilon$, on va donc s'en tenir aux observations pour dire si nos estimateurs sont biaisés ou non.\\
+On ne peut pas dire avec certitude que notre estimateur est biaisé ou non. Si on devait estimer $\beta_0$ et $\beta_1$ tirés d'un modèle de type $Y = \beta_0 + \beta_1x + \epsilon$ avec $\epsilon$ venant d'une certaine distribution de moyenne nulle, alors la théorie prédit que les estimateurs fournis par la régression linéaire pour $\beta_0$ et $\beta_1$ sont non biaisés. Cependant, ici rien ne garantit la condition sur $\epsilon$, on va donc s'en tenir aux observations pour dire si nos estimateurs sont biaisés ou non.\\
 Nous observons que notre estimateur pour $k$ est biaisé, tandis que celui pour $c$ ne l'est pas, du moins approximativement. Pour réduire le biais de $\hat{k}$ par rapport à $k$, on peut prendre des échantillons plus grands. On a aussi observé que rejeter plus de valeurs extrêmes réduisait le biais. Voici par exemples les résultat pour $n=10000$ en rejetant la première et dernière valeur (table~\ref{table:reg2}), et les résultats pour $n=1000$ en rejetant les 10 premières et les 10 dernières valeurs (table~\ref{table:reg10}).
 
 \begin{table}[!ht]
