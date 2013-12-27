@@ -1,0 +1,12 @@
+Y = getY();
+lambdak = mywblfit(Y);
+[mu, sigma] = mynormfit(Y);
+cdfplot(Y); hold on;
+x = linspace(0, 20, 100);
+plot(x, wblcdf(x, lambdak(1), lambdak(2)), 'g');
+plot(x, normcdf(x, mu, sigma), 'r');
+xlabel('note : x');
+ylabel('CDF : F(x)');
+title('Comparison of CDF');
+legend('sample', 'wbl', 'norm');
+saveas(gcf, '../img/cmp', 'png');

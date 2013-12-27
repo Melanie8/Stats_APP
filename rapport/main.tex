@@ -41,7 +41,13 @@
 
 \NewDocumentEnvironment{mytable}{mm}
 {\begin{table}[!ht]\centering}
-{\caption{#2 Valeurs obtenues par le code du listing~\ref{lst:#1}}\label{tab:#1}\end{table}}
+{\caption{#2 Valeurs obtenues par le code du listing~\ref{lst:#1}.}\label{tab:#1}\end{table}}
+
+\newcommand{\matlabplot}[2]
+{\begin{figure}[!ht]\centering
+\includegraphics[width=\textwidth]{img/#1.png}
+\caption{#2 Graphique obtenu par le code du listing~\ref{lst:#1}.}\label{fig:#1}\end{figure}}
+
 
 \newcommand{\matlabcode}[2]
 {\lstinputlisting[caption={Contenu du fichier \lstinline{#1.m}

@@ -1,6 +1,6 @@
 \section{Question 2}
 \begin{enumerate}
-  \item
+  \item La table~\ref{tab:val} montre différentes valeurs obtenues pour les notes de test.
     \begin{mytable}{val}{Table de différentes valeures des notes du test.}
       \begin{tabular}{ll}
         \input{matlab/val.tex}
@@ -35,11 +35,12 @@
                     \Gamma^2\left(1 + \frac{1}{m}\right)\right) + \alpha^{2/m}\Gamma^2\left(1 + \frac{1}{m}\right)\\
                     & = \alpha^{2/m}\Gamma\left(1 + \frac{2}{m}\right)
         \end{align*}
-        ce qui donne
+        D'où
         \begin{align*}
-          \mu & = \bar{y}\\
-          \sigma^2 & = \bar{y^2} - \bar{y}^2.
+          \alpha & = \left(\frac{\bar{y}}{\Gamma\left(1 + \frac{1}{m}\right)}\right)^m\\
+          \bar{y^2} & = \left(\frac{\bar{y}}{\Gamma\left(1 + \frac{1}{m}\right)}\right)^2\Gamma\left(1 + \frac{2}{m}\right)
         \end{align*}
+        ce qui peut être résolu numériquement.
     \end{itemize}
   \item
     La figure~\ref{fig:distrib} donne quelques exemple de distribution normale et de Weibull.
@@ -67,7 +68,57 @@
     \end{figure}
     De plus, la distribution normale est symétrique autour de $\mu$ alors que la distribution
     des notes d'un test n'est pas spécialement symétrique.
+
+    À l'aide de la question précédente, on peut écrire
+    \lstinline|mynormfit| (voir le listing~\ref{lst:mynormfit}) et
+    \lstinline|mywblfit| (voir le listing~\ref{lst:mywblfit}).
+    On peut ensuite comparer le CDF des distributions obtenues
+    avec la figure~\ref{fig:cmp}.
+    On remarque qu'ils sont fort semblables.
+
+    On va donc garder la Weibull pour les raisons mentionnées plus haut.
+    De toute façon, par le TCL, pour la suite,
+    on pourra considérer que c'est une normale.
+    \matlabplot{cmp}{Comparaisons des CDF de Weibull et de la normale avec celui des notes du test.}
   \item
-    La moyenne vaut 11.65, je ne pense donc pas qu'il réussira son examen.
+    Il y a plusieurs interprétation à un étudiant moyen.
+    Ça pourrait être le median ou la moyenne.
+    Considérons ici que c'est la moyenne, comme elle vaut 10.6 et que la réussite est à 12,
+    il ne réussira probablement pas son examen.
+  \item On a calculé que $\hat{p} = \si{34.5}{\%}$.
+    On sait que
+    \[ \hat{p} \sim \mathcal{N}(p,\frac{p(1-p)}{n}) \]
+    on a donc, en approximant $p$ au dénominateur par $\hat{p}$,
+    \[ P(-z_{\alpha/2} \leq \frac{\hat{p}-p}{\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}}
+    \leq z_{\alpha/2}) = 1-\alpha \]
+    avec $z_{\alpha/2} = 1.96$ car $\alpha = 0.05$.
+    On a alors comme interval
+    \[ \left[\hat{p}-z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}};
+    \hat{p}+z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\right] =
+    [0.287; 0.404].
+    \]
   \item
+    Il est hors de l'interval de confiance qui était un
+    interval sûr à $\si{95}{\%}$.
+    Malgrés la dualité entre interval de confiance et
+    test d'hypothèse,
+    faisons un test de l'hypothèse $H_0: p = 0.8$
+    en prenant $H_1: p < 0.8$.
+    Prenons $\alpha = 0.05$.
+    On a à nouveau
+    \[ \hat{p} \sim \mathcal{N}(p,\frac{p(1-p)}{n}) \]
+    mais gardons ici $p$ au dénominateur comme il est connu
+    comme on va supposer $H_0$ pour calculer $R$ tel que
+    $\alpha = 0.05$.
+    On remarque qu'on a, en supposans $p = p_0 = 0.8$
+    \[ P(\frac{\hat{p}-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}
+    \leq -z_{\alpha}) = \alpha \]
+    et donc
+    \[ P(\hat{p} \leq p_0-z_{\alpha}\sqrt{\frac{p_0(1-p_0)}{n}}) = \alpha. \]
+    L'ensemble $R = \{\hat{p} \in [0;1] | \hat{p} \leq p_0-z_{\alpha}\sqrt{\frac{p_0(1-p_0)}{n}}\}$
+    semble donc être un candidat idéal.
+    On a $p_0-z_{\alpha}\sqrt{\frac{p_0(1-p_0)}{n}} = 0.759$
+    car $z_\alpha = 1.645$.
+    Comme $\hat{p} = 0.345 \leq 0.759$, je me permet donc je rejetter
+    $H_0$.
 \end{enumerate}
