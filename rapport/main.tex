@@ -14,7 +14,7 @@
 \usepackage{amsfonts}
 \usepackage{amsopn}
 \usepackage[usenames,dvipsnames]{color}
-\usepackage[left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[left=1.6cm,right=1.6cm,top=1.5cm,bottom=2cm]{geometry}
 
 \usepackage{listings}
 \definecolor{gray}{rgb}{0.4,0.4,0.4}
@@ -58,9 +58,10 @@
 
 \DeclareMathOperator{\var}{Var}
 
-\title{LFSAB1105 : APP 2013-2014 \\ Probabilités et statistiques}
+\title{LFSAB1105 : Probabilités et statistiques \\ APP 2013 -- 2014}
 \author{
 \begin{tabular}{llll}
+\textsc{Deschamps} & Samuel & \\
 \textsc{Legat} & Benoît & 4896-11-00\\
 \textsc{Peschke} & Lena & 5826-11-00\\
 \textsc{Sanchez Falcon} & Alexandre & 2912-11-00\\
@@ -69,15 +70,17 @@
 \date{\today}
 
 \begin{document}
+
 \maketitle
+\pagenumbering{gobble}
+\newpage
 
-\begin{center}
-\line(1,0){250}
-\end{center}
 
-Tous les codes Matlab auquel nous ferons référence se trouvent dans l'Annexe A de rapport.
+\textit{Tous les codes Matlab auquel nous ferons référence se trouvent dans l'annexe A du rapport.}
+\pagenumbering{arabic}
 \input{quest1/quest1.tex}
 \input{quest2/quest2.tex}
+\clearpage
 \input{appendix.tex}
 
 \end{document}

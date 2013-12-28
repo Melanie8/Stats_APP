@@ -1,1 +1,26 @@
 \subsection{Comparaison}
+Comparons les trois méthodes utilisées pour $n = 500$. Nous prendrons en compte l'erreur quadratique totale et la variance des estimateurs et de l'erreur. Le tableau des valeurs est repris à la table~\ref{table:comp}.
+Nous pouvons voir que la méthode graphique minimise l'erreur quadratique moyenne. C'est également cette méthode qui donne les variance de $\hat{k}$, $\hat{c}$ et $ERT$ les plus petites, ce qui signifie que les valeurs successives obtenues ont un écart moindre par rapport à la moyenne.
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+				& Moyenne	& Variance\\
+\hline
+$\hat{k}_{MM}$	&			& 0.0085\\
+$\hat{k}_{MG}$	&			& 0.0044\\
+$\hat{k}_{MLE}$	&			& 0.0086\\
+\hline
+$\hat{c}_{MM}$	&			& 0.0014\\
+$\hat{c}_{MG}$	&			& 0.0012\\
+$\hat{c}_{MLE}$	&			& 0.0014\\
+\hline
+$ERT_{MM}$		& 0.0098	& 0.0001\\
+$ERT_{MG}$		& 0.0057	& $4.0814\cdot 10^{-5}$\\
+$ERT_{MLE}$		& 0.0100	& 0.0001\\
+\hline
+\end{tabular}
+\caption{Comparaison des 3 méthodes d'estimation, $n = 500$}
+\label{table:comp}
+\end{table}

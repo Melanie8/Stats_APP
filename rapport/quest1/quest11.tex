@@ -9,20 +9,20 @@ cv &= \frac{s}{\overline{x}} &= 0.3060
 
 \begin{figure}[!ht]
         \centering
-        \includegraphics[width=0.5\textwidth]{graphes/histo1.eps}
+        \includegraphics[width=0.4\textwidth]{graphes/histo1.eps}
         \caption{Histogramme pour un échantillon de taille 1000 avec k = 3.7 et c = 4.2}\label{fig:histo1}
 \end{figure}
 
 b)  Utilisons maintenant la méthode des moments pour trouver un estimateur $\hat\theta_{MM}$. Nous avons
 \begin{align*}
-\mu_1 = \mathbb{E}(x) &= \int_0^\infty \! x \frac{k}{c} \left(\frac{x}{c}\right)^{k-1} exp\left(-\left(\frac{x}{c}\right)^k\right) \, \mathrm{d}x\\
-&= \int_0^\infty \! c y^{\frac{1}{k}} exp(-y) \, \mathrm{d}y\\
-&= c\Gamma\left(\frac{1}{k}+1\right)
+\mu_1 = \mathbb{E}(x) &= \int_0^\infty \! x \frac{k}{c} \left(\frac{x}{c}\right)^{k-1} exp\left(-\left(\frac{x}{c}\right)^k\right) \, \mathrm{d}x
+= \int_0^\infty \! c y^{\frac{1}{k}} exp(-y) \, \mathrm{d}y
+= c\Gamma\left(\frac{1}{k}+1\right)
 \end{align*}
 \begin{align*}
-\mu_2 = \mathbb{E}(x^2) &= \int_0^\infty \! x^2 \frac{k}{c} \left(\frac{x}{c}\right)^{k-1} exp\left(-\left(\frac{x}{c}\right)^k\right) \, \mathrm{d}x\\
-&= \int_0^\infty \! c^2 y^{\frac{2}{k}} exp(-y) \, \mathrm{d}y\\
-&= c^2\Gamma\left(\frac{2}{k}+1\right)
+\mu_2 = \mathbb{E}(x^2) &= \int_0^\infty \! x^2 \frac{k}{c} \left(\frac{x}{c}\right)^{k-1} exp\left(-\left(\frac{x}{c}\right)^k\right) \, \mathrm{d}x
+= \int_0^\infty \! c^2 y^{\frac{2}{k}} exp(-y) \, \mathrm{d}y
+= c^2\Gamma\left(\frac{2}{k}+1\right)
 \end{align*}
 
 La méthode des moments consiste à résoudre
@@ -56,11 +56,11 @@ e) Pour chaque série, nous avons produit un box-plot et un histogramme. Les gra
 
 \begin{figure}[!ht]
         \centering
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{graphes/boxplot_kmm.eps}
         \end{subfigure}%
         ~
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{graphes/hist_kmm.eps}
         \end{subfigure}
         \caption{Graphes pour $\hat{k}$}\label{fig:kmm}
@@ -68,11 +68,11 @@ e) Pour chaque série, nous avons produit un box-plot et un histogramme. Les gra
 
 \begin{figure}[!ht]
         \centering
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{graphes/boxplot_cmm.eps}
         \end{subfigure}%
         ~
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{graphes/hist_cmm.eps}
         \end{subfigure}
         \caption{Graphes pour $\hat{c}$}\label{fig:cmm}
@@ -80,14 +80,14 @@ e) Pour chaque série, nous avons produit un box-plot et un histogramme. Les gra
 
 \begin{figure}[!ht]
         \centering
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{graphes/boxplot_ertmm.eps}
         \end{subfigure}%
         ~ 
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{graphes/hist_ertmm.eps}
         \end{subfigure}
         \caption{Graphes pour $ERT$}\label{fig:ertmm}
 \end{figure}
 
-f) Le biais de notre estimateur $\hat\theta_{MM}$ est négligeable et il diminue lors n augmente; on peut donc dire que cet estimateur est asymptotiquement non-biaisé. La variance est très petite et en prenant des échantillons de plus en plus grands, on observe qu'elle devient de plus en plus petite. $\hat\theta_{MM}$ est donc consistant. En ce qui concerne les distributions asymptotiques, les histogrammes montrent qu’elles sont approximativement normales.
+f) Le biais de notre estimateur $\hat\theta_{MM}$ est négligeable et il diminue lorsque $n$ augmente; on peut donc dire que cet estimateur est asymptotiquement non-biaisé. La variance est très petite et en prenant des échantillons de plus en plus grands, on observe qu'elle devient de plus en plus petite. $\hat\theta_{MM}$ est donc consistant. En ce qui concerne les distributions asymptotiques, les histogrammes montrent qu’elles sont approximativement normales.

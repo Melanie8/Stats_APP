@@ -9,7 +9,7 @@ Ensuite, nous travaillerons avec $\hat{\mbox{l}}$ = log$\left( \mbox{L} \right)$
 \begin{equation}
 \hat{\mbox{l}}(\mbox{k},\alpha) = \mbox{nlog}(\mbox{k}) + \mbox{nk log}(\alpha) + (\mbox{k}-1) \sum\limits_{i=1}^{n}\mbox{log}(\mbox{x}_{i}) - \alpha^{k} \sum\limits_{i=1}^{n} \mbox{x}^{k}_{i}
 \end{equation}
-avec $\hat{\mbox{l}}$ décomposer au maximum sous la forme d'une somme. Ainsi, nous pourrons obtenir aisément les dérivées de $\hat{\mbox{l}}$. \\
+avec $\hat{\mbox{l}}$ décomposé au maximum sous la forme d'une somme. Ainsi, nous pourrons aisément obtenir  les dérivées de $\hat{\mbox{l}}$. \\
 Calculons donc :
 \begin{align}
 \dfrac{\partial\hat{\mbox{l}}(\mbox{k},\alpha)}{\partial \alpha} &= \mbox{nk} \dfrac{1}{\alpha} - \sum\limits_{i=1}^{n} \mbox{x}^{k}_{i} \left( \mbox{k} \alpha^{\mbox{k}-1} \right) = 0 \label{eq:la} \\ \label{eq:lk}
@@ -82,11 +82,11 @@ Pour chaque série, nous avons produit un box-plot et un histogramme. Les graphe
 
 \begin{figure}[!ht]
         \centering
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{graphes/boxplot_kmle.eps}
         \end{subfigure}%
         ~
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{graphes/hist_kmle.eps}
         \end{subfigure}
         \caption{Graphes pour $\hat{k}_{MLE}$}\label{fig:kmle}
@@ -94,11 +94,11 @@ Pour chaque série, nous avons produit un box-plot et un histogramme. Les graphe
 
 \begin{figure}[!ht]
         \centering
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{graphes/boxplot_cmle.eps}
         \end{subfigure}%
         ~
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{graphes/hist_cmle.eps}
         \end{subfigure}
         \caption{Graphes pour $\hat{c}_{MLE}$}\label{fig:cmle}
@@ -106,18 +106,18 @@ Pour chaque série, nous avons produit un box-plot et un histogramme. Les graphe
 
 \begin{figure}[!ht]
         \centering
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{graphes/boxplot_ertmle.eps}
         \end{subfigure}%
         ~ 
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{graphes/hist_ertmle.eps}
         \end{subfigure}
         \caption{Graphes pour $ERT_{MLE}$}\label{fig:ertmle}
 \end{figure}
 
 \paragraph{Biais, variance, consistence et distribution asymptotique}
-La biais de notre estimateur $\hat{\theta}_{MLE}$ est négligeable; on peut donc raisonnablement dire qu'il est approximativement non-biaisé. En prenant des échantillons de plus en plus grand, on observe que la variance ne change pas significativement. $\hat{\theta}_{MLE}$ est donc non consistant.
-En ce qui concerne les distributions asymptotiques, les histogrammes montrent qu'elles sont approximativement normales. Notons toutefois que ces propriétés dépendent grandement des intervalles et du nombre de  points candidats choisis initialement~: avec un intervalle plus grand autour des valeur réelles de $c$ et $k$, ou avec moins de points candidats, les résultats auraient été moins proches.
+La biais de notre estimateur $\hat{\theta}_{MLE}$ est négligeable; on peut donc raisonnablement dire qu'il est approximativement non-biaisé. En prenant des échantillons de plus en plus grand, on observe que la variance diminue. $\hat{\theta}_{MLE}$ est donc consistant.
+En ce qui concerne les distributions asymptotiques, les histogrammes montrent qu'elles sont approximativement normales. Notons toutefois que ces propriétés dépendent grandement des intervalles choisis initialement~: avec un intervalle plus grand autour des valeur réelles de $c$ et $k$, les résultats auraient été moins proches.
 
 

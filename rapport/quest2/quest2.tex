@@ -1,23 +1,23 @@
 \section{Question 2}
 \begin{enumerate}
   \item La table~\ref{tab:val} montre différentes valeurs obtenues pour les notes de test.
-    \begin{mytable}{val}{Table de différentes valeures des notes du test.}
+    \begin{mytable}{val}{Table de différentes valeurs des notes du test.}
       \begin{tabular}{ll}
         \input{matlab/val.tex}
       \end{tabular}
     \end{mytable}
   \item Utilisons la méthode des moments
-    (qui donne la même chose que celle du maximum de vraissemblance pour
+    (qui donne la même chose que celle du maximum de vraisemblance pour
     une loi normale de toute façon).
     \begin{itemize}
       \item
         Pour la loi normale, on a
         \begin{align*}
-          \bar{y} & = E(Y)\\
-                  & = \mu\\
-          \bar{y^2} & = E(Y^2)\\
-                    & = \var(Y) + E(Y)^2\\
-                    & = \sigma^2 + \mu^2
+          \bar{y} & = E(Y)
+                    = \mu\\
+          \bar{y^2} & = E(Y^2)
+                      = \var(Y) + E(Y)^2
+                      = \sigma^2 + \mu^2
         \end{align*}
         ce qui donne
         \begin{align*}
@@ -27,13 +27,13 @@
       \item
         Pour la loi de Weibull, on a
         \begin{align*}
-          \bar{y} & = E(Y)\\
-                  & = \sqrt[m]{\alpha}\Gamma\left(1 + \frac{1}{m}\right)\\
-          \bar{y^2} & = E(Y^2)\\
-                    & = \var(Y) + E(Y)^2\\
-                    & = \alpha^{2/m}\left(\Gamma\left(1 + \frac{2}{m}\right) -
-                    \Gamma^2\left(1 + \frac{1}{m}\right)\right) + \alpha^{2/m}\Gamma^2\left(1 + \frac{1}{m}\right)\\
-                    & = \alpha^{2/m}\Gamma\left(1 + \frac{2}{m}\right)
+          \bar{y} & = E(Y)
+                   = \sqrt[m]{\alpha}\Gamma\left(1 + \frac{1}{m}\right)\\
+          \bar{y^2} & = E(Y^2)
+                     = \var(Y) + E(Y)^2
+                     = \alpha^{2/m}\left(\Gamma\left(1 + \frac{2}{m}\right) -
+                    \Gamma^2\left(1 + \frac{1}{m}\right)\right) + \alpha^{2/m}\Gamma^2\left(1 + \frac{1}{m}\right)
+                     = \alpha^{2/m}\Gamma\left(1 + \frac{2}{m}\right)
         \end{align*}
         D'où
         \begin{align*}
@@ -51,14 +51,14 @@
 
     \begin{figure}
       \centering
-      \begin{subfigure}[b]{0.45\textwidth}
+      \begin{subfigure}[b]{0.4\textwidth}
         \includegraphics[width=\textwidth]{img/normal.png}
         \caption{Normal distribution}
         \label{fig:normal}
       \end{subfigure}%
       ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
       %(or a blank line to force the subfigure onto a new line)
-      \begin{subfigure}[b]{0.45\textwidth}
+      \begin{subfigure}[b]{0.4\textwidth}
         \includegraphics[width=\textwidth]{img/weibull}
         \caption{Weibull distribution}
         \label{fig:weibull}

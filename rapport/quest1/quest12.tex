@@ -11,12 +11,11 @@ On peut alors utiliser les $n-1$ premières valeurs de $X'$ pour effectuer la r�
 Pour la suite, nous avons choisi $\theta = (2,2)$ comme paramètres à estimer et $n =1000$ comme taille d'échantillon.
 Nous calculons $\hat{\theta}$ avec la régression linéaire, puis l'erreur quadratique totale $ERT$.\\
 Voici les résultats obtenus pour un échantillon particulier (voir figure~\ref{fig:droite} pour la droite de régression linéaire) :
-$$ \hat{\theta} = (1.9872,2.0368) $$
-$$ ERT  = 0.0015 $$
+$$ \hat{\theta} = (1.9872,2.0368) \text{ et } ERT  = 0.0015 $$
 
 \begin{figure}[!ht]
         \centering
-        \includegraphics[width=0.5\textwidth]{graphes/droite_mg.eps}
+        \includegraphics[width=0.4\textwidth]{graphes/droite_mg.eps}
         \caption{Droite de régression}\label{fig:droite}
 \end{figure}
 
@@ -41,11 +40,11 @@ Pour chaque série, nous avons produit un box-plot et un histogramme. Les graphe
 
 \begin{figure}[!ht]
         \centering
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{graphes/boxplot_kmg.eps}
         \end{subfigure}%
         ~
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{graphes/hist_kmg.eps}
         \end{subfigure}
         \caption{Graphes pour $\hat{k}$}\label{fig:kmg}
@@ -53,11 +52,11 @@ Pour chaque série, nous avons produit un box-plot et un histogramme. Les graphe
 
 \begin{figure}[!ht]
         \centering
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{graphes/boxplot_cmg.eps}
         \end{subfigure}%
         ~
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{graphes/hist_cmg.eps}
         \end{subfigure}
         \caption{Graphes pour $\hat{c}$}\label{fig:cmg}
@@ -65,11 +64,11 @@ Pour chaque série, nous avons produit un box-plot et un histogramme. Les graphe
 
 \begin{figure}[!ht]
         \centering
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{graphes/boxplot_ertmg.eps}
         \end{subfigure}%
         ~ 
-        \begin{subfigure}[b]{0.5\textwidth}
+        \begin{subfigure}[b]{0.4\textwidth}
                 \includegraphics[width=\textwidth]{graphes/hist_ertmg.eps}
         \end{subfigure}
         \caption{Graphes pour $ERT$}\label{fig:ertmg}
