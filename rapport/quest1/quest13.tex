@@ -117,7 +117,22 @@ Pour chaque série, nous avons produit un box-plot et un histogramme. Les graphe
 \end{figure}
 
 \paragraph{Biais, variance, consistence et distribution asymptotique}
-La biais de notre estimateur $\hat{\theta}_{MLE}$ est négligeable; on peut donc raisonnablement dire qu'il est approximativement non-biaisé. En prenant des échantillons de plus en plus grand, on observe que la variance diminue. $\hat{\theta}_{MLE}$ est donc consistant.
+La biais de notre estimateur $\hat{\theta}_{MLE}$ est négligeable; on peut donc raisonnablement dire qu'il est approximativement non-biaisé. En prenant des échantillons de plus en plus grand, on observe que la variance diminue. $\hat{\theta}_{MLE}$ est donc consistant. La table~\ref{table:MLE_n10000} reprend les valeurs obtenues pour $n = 10000$.
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+				& Moyenne 	& Variance\\
+\hline
+$\hat{k}_{MLE}$ & 3.7003 	& $8.5225 \cdot 10^{-4}$\\
+$\hat{c}_{MLE}$ & 4.1997 	& $1.7429 \cdot 10^{-4}$\\
+$ERT_{MLE}$		& 0.0010	& $1.7064 \cdot 10^{-6}$
+\\
+\hline
+\end{tabular}
+\caption{Maximum de vraisemblance, $n=10000$}
+\label{table:MLE_n10000}
+\end{table}
 En ce qui concerne les distributions asymptotiques, les histogrammes montrent qu'elles sont approximativement normales. Notons toutefois que ces propriétés dépendent grandement des intervalles choisis initialement~: avec un intervalle plus grand autour des valeur réelles de $c$ et $k$, les résultats auraient été moins proches.
 
 
