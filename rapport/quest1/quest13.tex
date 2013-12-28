@@ -1,25 +1,25 @@
 \subsection{Méthode du maximum de vraisemblance}
 \paragraph{Démonstration}
-\noindent On a l'équation de maximum de vraisemblance : \\
+\noindent Partons de l'équation de maximum de vraisemblance : \\
 \begin{equation}
-\mbox{L}\left(\mbox{k },\alpha \right) = \left( \mbox{k} \alpha^{k} \right)^{n} \left( \prod\limits_{i=1}^{n} \mbox{x}^{\mbox{k}-1}_{i} \right) \mbox{exp}\left( -\alpha^{k} \sum\limits_{i=1}^n \mbox{x}^{k}_{i}\right)
+\mbox{L}\left(\mbox{x}_{1},\cdots,\mbox{x}_{\mbox{n}}|\mbox{k },\alpha \right) = \left( \mbox{k} \alpha^{k} \right)^{n} \left( \prod\limits_{i=1}^{n} \mbox{x}^{\mbox{k}-1}_{i} \right) \mbox{exp}\left( -\alpha^{k} \sum\limits_{i=1}^n \mbox{x}^{k}_{i}\right)
 \end{equation}
 où $\alpha$ = $\dfrac{1}{c}$ . \\
 Ensuite, nous travaillerons avec $\hat{\mbox{l}}$ = log$\left( \mbox{L} \right)$ tel que : 
 \begin{equation}
-\hat{\mbox{l}}(\mbox{k},\alpha) = \mbox{nlog}(\mbox{k}) + \mbox{nk log}(\alpha) + (\mbox{k}-1) \sum\limits_{i=1}^{n}\mbox{log}(\mbox{x}_{i}) - \alpha^{k} \sum\limits_{i=1}^{n} \mbox{x}^{k}_{i}
+\hat{\mbox{l}}(\mbox{x}_{1},\cdots,\mbox{x}_{\mbox{n}}|\mbox{k},\alpha) = \mbox{nlog}(\mbox{k}) + \mbox{nk log}(\alpha) + (\mbox{k}+1) \sum\limits_{i=1}^{n}\mbox{log}(\mbox{x}_{i}) - \alpha^{k} \sum\limits_{i=1}^{n} \mbox{x}^{k}_{i}
 \end{equation}
-avec $\hat{\mbox{l}}$ décomposé au maximum sous la forme d'une somme. Ainsi, nous pourrons aisément obtenir  les dérivées de $\hat{\mbox{l}}$. \\
-Calculons donc :
+avec $\hat{\mbox{l}}$ décomposé au maximum sous la forme d'une somme pour faciliter la dérivation. Par ailleurs, nous ne noterons plus les $\mbox{x}_{1},\cdots,\mbox{x}_{\mbox{n}}$ en argument par soucis de clarté. \\
+Nous obtenons après dérivation en fonction de k et $\alpha$:
 \begin{align}
 \dfrac{\partial\hat{\mbox{l}}(\mbox{k},\alpha)}{\partial \alpha} &= \mbox{nk} \dfrac{1}{\alpha} - \sum\limits_{i=1}^{n} \mbox{x}^{k}_{i} \left( \mbox{k} \alpha^{\mbox{k}-1} \right) = 0 \label{eq:la} \\ \label{eq:lk}
-\dfrac{\partial\hat{\mbox{l}}(\mbox{k},\alpha)}{\partial \mbox{k}} &= \dfrac{\mbox{n}}{\mbox{k}} + \mbox{n}\mbox{log}(\alpha) + \sum\limits_{i=1}^{n} \mbox{log}(\mbox{x}^{k}_{i}) - \sum\limits_{i=1}^{n} \dfrac{(\partial \alpha \mbox{x}_{i})^{\mbox{k}}}{\partial \mbox{k}} = 0
+\dfrac{\partial\hat{\mbox{l}}(\mbox{k},\alpha)}{\partial \mbox{k}} &= \dfrac{\mbox{n}}{\mbox{k}} + \mbox{n}\mbox{log}(\alpha) + \sum\limits_{i=1}^{n} \mbox{log}(\mbox{x}^{k}_{i}) - \sum\limits_{i=1}^{n} \dfrac{(\partial \alpha \mbox{x}_{i})^{\mbox{k}}}{\partial \mbox{k}} = 0.
 \end{align}
-Développons l'équation \ref{eq:la} en multipliant l'équation par $\alpha$ :
+Multiplions l'équation \ref{eq:la} par $\dfrac{\alpha}{\mbox{k}}$ :
 \begin{equation}
 \mbox{n} = \sum\limits_{i=1}^{n} \mbox{x }^{k}_{i} \alpha^{\mbox{k}} 
 \end{equation}
-Il vient donc directement par la définition de $\alpha$ que :
+il vient donc directement par la définition de $\alpha$ que :
 \begin{equation}
 \mbox{c} = \left(\sum\limits_{i=1}^{n} \mbox{x }^{k}_{i}\dfrac{1}{\mbox{n}}\right)^{\dfrac{1}{\mbox{k}}} \label{c}
 \end{equation}
@@ -28,21 +28,21 @@ Nous utiliserons par ailleurs la propriété de dérivation suivante :
 \begin{equation}
 \dfrac{\partial \mbox{a}^{\mbox{x}}}{\partial \mbox{x}} = \mbox{log}(\mbox{a})~\mbox{a}^{\mbox{x}}
 \end{equation}
-Ainsi, nous avons après avoir développé la dernière dérivée partielle de l'équation \ref{eq:lk} :
+après avoir développé la dernière dérivée partielle de l'équation \ref{eq:lk}, nous obtenons :
 \begin{equation}
- \dfrac{\mbox{n}}{\mbox{k}} + \mbox{n}\mbox{log}(\alpha) + \sum\limits_{i=1}^{n} \mbox{log}(\mbox{x}^{k}_{i}) -  \sum\limits_{i=1}^{n}  \left[ \left[ \mbox{log}(\mbox{x}_{i}) + \mbox{log}(\alpha) \right] \alpha^{\mbox{k}} \mbox{x}^{k}_{i} \right] = 0
+ \dfrac{\mbox{n}}{\mbox{k}} + \mbox{n}\mbox{log}(\alpha) + \sum\limits_{i=1}^{n} \mbox{log}(\mbox{x}^{k}_{i}) -  \sum\limits_{i=1}^{n}  \left[ \left[ \mbox{log}(\mbox{x}_{i}) + \mbox{log}(\alpha) \right] \alpha^{\mbox{k}} \mbox{x}^{k}_{i} \right] = 0. \label{8}
 \end{equation}
-Nous pouvons encore simplifier l'expression ci-dessus en utilisant l'équation \ref{c} :
+Nous pouvons simplifier l'expression ci-dessus en utilisant le résultat obtenu en \ref{c} . Le terme de droite peut se réécrire :
 \begin{equation}
 \sum\limits_{i=1}^{n}  \left[ \left[ \mbox{log}(\mbox{x}_{i}) + \mbox{log}(\alpha) \right] \alpha^{\mbox{k}} \mbox{x}^{k}_{i} \right] = \mbox{n} \dfrac{\sum\limits_{i=1}^{n} \mbox{x}^{k}_{i} \mbox{~log}(\mbox{x}_{i})}{\sum\limits_{i=1}^{n} \mbox{x}^{k}_{i}} + \mbox{n}\mbox{log}(\alpha)
 \end{equation}
-Nous arrivons donc à l'équation suivante en annulant les termes en log($\alpha$):
+en annulant les termes en log($\alpha$) dans \ref{8}, nous avons l'équation suivante :
 \begin{equation}
 \dfrac{\mbox{n}}{\mbox{k}} = \mbox{n} \dfrac{\sum\limits_{i=1}^{n} \mbox{x}^{k}_{i} \mbox{~log}(\mbox{x}_{i})}{\sum\limits_{i=1}^{n} \mbox{x}^{k}_{i}} - \sum\limits_{i=1}^{n} \mbox{~log}(\mbox{x}_{i})
 \end{equation}
 et nous obtenons le résultat souhaité :
 \begin{equation}
-\dfrac{1}{\mbox{k}} = \dfrac{\sum\limits_{i=1}^{n} \mbox{x}^{k}_{i} \mbox{~log}(\mbox{x}_{i})}{\sum\limits_{i=1}^{n} \mbox{x}^{k}_{i}} - \dfrac{\sum\limits_{i=1}^{n} \mbox{~log}(\mbox{x}_{i})}{\mbox{n}}
+\mbox{k} = \left[\dfrac{\sum\limits_{i=1}^{n} \mbox{x}^{k}_{i} \mbox{~log}(\mbox{x}_{i})}{\sum\limits_{i=1}^{n} \mbox{x}^{k}_{i}} - \dfrac{\sum\limits_{i=1}^{n} \mbox{~log}(\mbox{x}_{i})}{\mbox{n}}\right]^{-1}
 \end{equation}
 
 %b)
